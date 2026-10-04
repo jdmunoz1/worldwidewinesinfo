@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  --c-ink: #1a1714;
+  --c-ink-soft: #5c554d;
+  --c-paper: #faf7f2;
+  --c-paper-2: #f2ece1;
+  --c-wine: #7a2e3b;
+  --c-wine-2: #5d1f2c;
+  --c-wine-soft: #f6ecec;
+  --c-burgundy: #4b1e2a;
+  --c-gold: #c4974a;
+  --c-gold-soft: #f4ead6;
+  --c-green: #33443a;
+  --c-green-soft: #e9efe9;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Typography helpers ────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--c-ink-soft);
+}
+.prose-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #2a251f;
+}
+.prose-body p {
+  margin-bottom: 1.25rem;
+}
+.prose-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 2.2rem 0 0.9rem;
+  color: var(--c-ink);
+  line-height: 1.25;
+}
+.prose-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  margin: 1.8rem 0 0.7rem;
+  color: var(--c-ink);
+}
+.prose-body ul {
+  margin: 0 0 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+.prose-body ul li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.prose-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.72em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--c-wine);
+  transform: rotate(45deg);
+}
+.prose-body ol {
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.4rem;
+  list-style: decimal;
+}
+.prose-body ol li {
+  margin-bottom: 0.6rem;
+}
+.prose-body strong {
+  color: var(--c-ink);
+  font-weight: 650;
+}
+
+/* ── Spreadsheets & cards ──────────────────────────────────── */
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 1.4rem 0;
+}
+.sheet th {
+  text-align: left;
+  background: var(--c-wine-soft);
+  color: var(--c-wine-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid var(--c-wine);
+}
+.sheet td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid #ebe4d8;
+  vertical-align: top;
+}
+.sheet tbody tr:nth-child(even) {
+  background: #fcfaf6;
+}
+.sheet tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Inline chip / tag ─────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: var(--c-paper-2);
+  border: 1px solid #e5dccb;
+  font-size: 0.82rem;
+  color: var(--c-ink-soft);
+  white-space: nowrap;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.btn-wine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--c-wine);
+  color: #fff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.18s ease, transform 0.18s ease;
+  text-decoration: none;
+}
+.btn-wine:hover {
+  background: var(--c-wine-2);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--c-ink);
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1.5px solid var(--c-ink);
+  transition: background 0.18s ease, color 0.18s ease;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: var(--c-ink);
+  color: #fff;
+}
+
+/* ── Focus & accessibility ─────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--c-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Breadcrumb ────────────────────────────────────────────── */
+.crumb {
+  font-size: 0.85rem;
+  color: var(--c-ink-soft);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.crumb a {
+  color: var(--c-wine);
+  text-decoration: none;
+}
+.crumb a:hover {
+  text-decoration: underline;
+}
+
+/* ── Horizontal rule & dividers ────────────────────────────── */
+.rule {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d9cbb0, transparent);
+  margin: 2.5rem 0;
+}
+
+/* ── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Link underline for prose ──────────────────────────────── */
+.prose-body a,
+.lede a {
+  color: var(--c-wine);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-body a:hover {
+  text-decoration-thickness: 2px;
+}

@@ -1,0 +1,130 @@
+import type { WineStyle } from "@/types";
+
+export const wineStyles: WineStyle[] = [
+  {
+    id: "red-wine",
+    name: "Red Wine",
+    slug: "red-wine",
+    family: "red",
+    hero: "The world's best-loved wine category",
+    description:
+      "Red wine is made by fermenting grapes with their skins, which impart colour and the grippy tannins that define the style. It spans everything from feather-light Pinot Noir to dense, age-worthy Cabernet and Syrah.",
+    productionMethod:
+      "Red grapes are crushed and fermented on their skins, macerating to extract colour, flavour and tannin. Many reds are then aged in oak, which adds spice, roundness and structure before bottling.",
+    keyGrapes: ["Cabernet Sauvignon", "Pinot Noir", "Merlot", "Syrah", "Tempranillo", "Malbec"],
+    keyGrapeSlugs: ["cabernet-sauvignon", "pinot-noir", "merlot", "syrah", "tempranillo", "malbec"],
+    keyRegions: ["Bordeaux", "Burgundy", "Barossa Valley", "Napa Valley", "Mendoza"],
+    foodPairings: ["Grilled meats", "roasts", "pasta with rich sauces", "hard cheese", "stews"],
+    servingTemperature: "15–18°C (cool room temperature)",
+    characteristics: ["Tannin", "Deep colour", "Broad flavour range", "Often age-worthy"],
+    relatedStyleSlugs: ["rose", "fortified-wine"],
+  },
+  {
+    id: "white-wine",
+    name: "White Wine",
+    slug: "white-wine",
+    family: "white",
+    hero: "Crisp, aromatic and endlessly versatile",
+    description:
+      "White wine is usually made by pressing the grapes and fermenting the clear juice without the skins, preserving freshness and perfume. Styles range from bone-dry, steely whites to rich, oak-aged bottles.",
+    productionMethod:
+      "White grapes are pressed, and the juice ferments without skin contact. Cool fermentation preserves aromatic fruit; oak ageing or lees contact add texture and toasty notes to fuller styles.",
+    keyGrapes: ["Chardonnay", "Sauvignon Blanc", "Riesling", "Pinot Grigio", "Chenin Blanc", "Albariño"],
+    keyGrapeSlugs: ["chardonnay", "sauvignon-blanc", "riesling", "pinot-grigio", "chenin-blanc", "albarino"],
+    keyRegions: ["Burgundy", "Marlborough", "Mosel", "Loire Valley", "Chablis"],
+    foodPairings: ["Seafood", "poultry", "light pasta", "fresh salads", "soft cheese"],
+    servingTemperature: "8–13°C (well chilled)",
+    characteristics: ["Fresh acidity", "Aromatic", "Often lower alcohol than reds", "Food-friendly"],
+    relatedStyleSlugs: ["sparkling-wine", "dessert-wine"],
+  },
+  {
+    id: "rose",
+    name: "Rosé",
+    slug: "rose",
+    family: "rosé",
+    hero: "Summer's sunshine in a glass",
+    description:
+      "Rosé is made by giving red grapes a short skin contact — just enough to blush the wine pink — before pressing. The result is a dry, refreshing wine with red-fruit charm and the versatility to pair with almost anything.",
+    productionMethod:
+      "The pale-pink colour comes from brief skin maceration (from a few hours to a couple of days). Rosé can be made by bleeding juice from a red wine tank (saignée) or by blending (rare in quality examples).",
+    keyGrapes: ["Grenache", "Cinsault", "Mourvèdre", "Syrah", "Cabernet Franc"],
+    keyGrapeSlugs: ["grenache", "mourvedre", "syrah", "cabernet-franc"],
+    keyRegions: ["Provence", "Languedoc", "Spain", "California"],
+    foodPairings: ["Salads", "grilled fish", "Mediterranean food", "charcuterie", "spicy dishes"],
+    servingTemperature: "8–12°C (chilled)",
+    characteristics: ["Pale colour", "Dry & refreshing", "Red-fruit aromas", "High versatility"],
+    relatedStyleSlugs: ["red-wine", "white-wine"],
+  },
+  {
+    id: "sparkling-wine",
+    name: "Sparkling Wine",
+    slug: "sparkling-wine",
+    family: "sparkling",
+    hero: "Celebration, bottled",
+    description:
+      "Sparkling wine's bubbles come from trapped carbon dioxide, created either by a second fermentation in the bottle (Champagne method) or in a large tank (Charmat method). Styles range from crisp brut to sweet demi-sec.",
+    productionMethod:
+      "Traditional method sparkling undergoes a second fermentation in the same bottle, building pressure and complex autolysis (yeast) characters, then ages on its lees. Charmat-method sparklers (like Prosecco) ferment in tank, preserving fresh fruit.",
+    keyGrapes: ["Chardonnay", "Pinot Noir", "Pinot Meunier", "Glera"],
+    keyGrapeSlugs: ["chardonnay", "pinot-noir", "glera"],
+    keyRegions: ["Champagne", "Prosecco", "Cava", "Cremant", "Tasmania"],
+    foodPairings: ["Oysters", "fried food", "aperitifs", "soft cheese", "sushi"],
+    servingTemperature: "6–10°C (well chilled)",
+    characteristics: ["Fresh bubbles", "High acidity", "Versatile", "Celebratory"],
+    relatedStyleSlugs: ["white-wine", "rose"],
+  },
+  {
+    id: "dessert-wine",
+    name: "Dessert Wine",
+    slug: "dessert-wine",
+    family: "dessert",
+    hero: "Sweet wines for the end of the meal",
+    description:
+      "Dessert wines concentrate sugar through late harvest, botrytis 'noble rot', or drying the grapes, then often finish on a higher residual sweetness. The finest pair brilliantly with — or without — pudding.",
+    productionMethod:
+      "Sweetness comes from leaving sugar unfermented. Botrytis-affected grapes (Sauternes, Tokaji) concentrate flavour; late-harvest and ice wines rely on natural concentration; some styles fortify partway through fermentation.",
+    keyGrapes: ["Riesling", "Sémillon", "Chenin Blanc", "Muscat", "Gewürztraminer"],
+    keyGrapeSlugs: ["riesling", "semillon", "chenin-blanc", "muscat", "gewurztraminer"],
+    keyRegions: ["Sauternes", "Mosel", "Tokaj", "Loire Valley"],
+    foodPairings: ["Tarte Tatin", "creme brûlée", "blue cheese", "fruit desserts", "itself"],
+    servingTemperature: "6–10°C (chilled)",
+    characteristics: ["Sweet", "Rich", "Honeyed", "Age-worthy"],
+    relatedStyleSlugs: ["fortified-wine", "white-wine"],
+  },
+  {
+    id: "fortified-wine",
+    name: "Fortified Wine",
+    slug: "fortified-wine",
+    family: "fortified",
+    hero: "Wine intensified by spirit",
+    description:
+      "Fortified wines have grape brandy or neutral spirit added, either during or after fermentation, boosting alcohol and sweetness. Port, Sherry, Madeira and Marsala are the classic styles.",
+    productionMethod:
+      "Adding spirit to fermenting wine stops it early (leaving sugar — Port) or after full fermentation (Sherry). Sherry is then aged under a protective yeast 'flor' (fino) or oxidatively (oloroso) in the solera system.",
+    keyGrapes: ["Touriga Nacional", "Palomino", "Pedro Ximénez", "Grenache"],
+    keyGrapeSlugs: ["touriga-nacional", "palomino", "pedro-ximenez", "grenache"],
+    keyRegions: ["Douro", "Jerez", "Madeira", "Rutherglen"],
+    foodPairings: ["Blue cheese", "nuts", "chocolate", "glazed ham", "desserts"],
+    servingTemperature: "Varies — fino chilled, port at room temperature",
+    characteristics: ["Higher alcohol", "Concentrated", "Long-lived", "Complex"],
+    relatedStyleSlugs: ["dessert-wine", "red-wine"],
+  },
+  {
+    id: "natural-wine",
+    name: "Natural Wine",
+    slug: "natural-wine",
+    family: "specialty",
+    hero: "A low-intervention philosophy",
+    description:
+      "Natural wine is a loose, unregulated movement favouring minimal intervention: organically or biodynamically grown grapes, wild-yeast fermentation, little or no added sulphur, and minimal filtration.",
+    productionMethod:
+      "No single definition exists, but the ethos is to let the vineyard and grape speak. Natural winemakers avoid added yeasts, acid, enzymes and most sulphites, and bottle without filtration or fining.",
+    keyGrapes: ["Chenin Blanc", "Gamay", "Pinot Noir", "Grolleau", "Négrette"],
+    keyGrapeSlugs: ["chenin-blanc", "gamay", "pinot-noir"],
+    keyRegions: ["Loire Valley", "Beaujolais", "Jura", "Sicily", "Oregon"],
+    foodPairings: ["Farm-to-table food", "vegetables", "charcuterie", "rustic dishes"],
+    servingTemperature: "10–14°C",
+    characteristics: ["Low intervention", "Live, cloudy", "Expressive", "Can be funky"],
+    relatedStyleSlugs: ["red-wine", "white-wine"],
+  },
+];
