@@ -33,15 +33,33 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[var(--c-paper)] pt-12 pb-24">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative overflow-hidden bg-[var(--c-paper)] pt-16 pb-28">
+        {/* Ambient wine-tinted glows + vine motif for depth */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(196,151,74,0.18),transparent_60%)]" />
+          <div className="absolute top-40 right-10 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(122,46,59,0.14),transparent_60%)]" />
+          <div className="absolute right-[16%] top-[30%] hidden lg:block opacity-[0.14]" style={{ transform: "rotate(12deg)" }}>
+            <svg width="340" height="380" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="300" cy="350" r="210" stroke="#7a2e3b" strokeWidth="1"/>
+              <circle cx="300" cy="350" r="150" stroke="#7a2e3b" strokeWidth="0.5"/>
+              <path d="M300 150 Q410 250 300 350 Q190 450 300 550" stroke="#7a2e3b" strokeWidth="2.5" fill="none"/>
+              <circle cx="300" cy="150" r="18" fill="#7a2e3b" opacity="0.55"/>
+              <circle cx="412" cy="252" r="12" fill="#c4974a" opacity="0.6"/>
+              <circle cx="190" cy="448" r="10" fill="#7a2e3b" opacity="0.5"/>
+              <circle cx="300" cy="550" r="8" fill="#c4974a" opacity="0.55"/>
+            </svg>
+          </div>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4">
           <div className="max-w-2xl">
-            <p className="text-[0.72rem] uppercase tracking-[0.22em] text-[var(--c-gold)] font-semibold mb-4">
+            <p className="flex items-center gap-2.5 text-[0.72rem] uppercase tracking-[0.22em] text-[var(--c-gold)] font-semibold mb-5">
+              <span aria-hidden className="h-px w-8 bg-[var(--c-gold)]" />
               Your wine education starts here
             </p>
-            <h1 className="font-display text-5xl md:text-6xl tracking-tight text-[var(--c-ink)] leading-[1.1] mb-6">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-[4.25rem] tracking-tight text-[var(--c-ink)] leading-[1.06] mb-6">
               The world&apos;s wines,{" "}
-              <em className="not-italic text-[var(--c-wine)]">
+              <em className="not-italic text-[var(--c-wine)] underline decoration-[var(--c-gold)] decoration-2 underline-offset-[6px]">
                 explained with care
               </em>
             </h1>
@@ -60,18 +78,6 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
-        </div>
-        {/* Decorative vine illustration */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-[0.06] pointer-events-none hidden lg:block" aria-hidden>
-          <svg viewBox="0 0 600 700" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="300" cy="350" r="200" stroke="#7a2e3b" strokeWidth="1"/>
-            <circle cx="300" cy="350" r="140" stroke="#7a2e3b" strokeWidth="0.5"/>
-            <path d="M300 150 Q400 250 300 350 Q200 450 300 550" stroke="#7a2e3b" strokeWidth="2" fill="none"/>
-            <circle cx="300" cy="150" r="18" fill="#7a2e3b" opacity="0.5"/>
-            <circle cx="400" cy="250" r="12" fill="#c4974a" opacity="0.5"/>
-            <circle cx="200" cy="450" r="10" fill="#7a2e3b" opacity="0.4"/>
-            <circle cx="300" cy="550" r="8" fill="#c4974a" opacity="0.4"/>
-          </svg>
         </div>
       </section>
 
@@ -158,10 +164,16 @@ export default async function HomePage() {
             <Link
               key={item.href}
               href={item.href}
-              className="group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl border border-[#ece4d8] hover:border-[var(--c-wine)] hover:shadow-md transition text-center"
+              className="group flex flex-col items-center gap-3 p-7 bg-white rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1 transition-transform duration-200 text-center overflow-hidden relative"
             >
-              <span aria-hidden className="text-3xl">{item.icon}</span>
-              <span className="font-display font-semibold text-[var(--c-ink)] group-hover:text-[var(--c-wine)] transition">
+              <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-[var(--c-wine)] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              <span
+                aria-hidden
+                className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--c-wine-soft)] text-2xl transition-transform duration-200 group-hover:scale-110"
+              >
+                {item.icon}
+              </span>
+              <span className="font-display font-semibold text-[var(--c-ink)] group-hover:text-[var(--c-wine)] transition-colors duration-200">
                 {item.label}
               </span>
             </Link>

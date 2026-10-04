@@ -16,24 +16,25 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`max-w-6xl mx-auto px-4 py-14 ${className}`}>
+    <section className={`max-w-6xl mx-auto px-4 py-16 md:py-20 ${className}`}>
       <div className="max-w-2xl">
         {eyebrow && (
-          <p className="text-[0.72rem] uppercase tracking-[0.2em] text-[var(--c-gold)] font-semibold mb-3">
+          <p className="flex items-center gap-2.5 text-[0.72rem] uppercase tracking-[0.2em] text-[var(--c-gold)] font-semibold mb-4">
+            <span aria-hidden className="h-px w-8 bg-[var(--c-gold)]" />
             {eyebrow}
           </p>
         )}
-        <h2 className="font-display text-3xl md:text-4xl tracking-tight text-[var(--c-ink)] mb-4">
+        <h2 className="font-display text-3xl md:text-[2.75rem] md:leading-[1.12] tracking-tight text-[var(--c-ink)] mb-4">
           {title}
         </h2>
         {intro && <p className="lede">{intro}</p>}
       </div>
-      {children && <div className="mt-8">{children}</div>}
+      {children && <div className="mt-10">{children}</div>}
     </section>
   );
 }
 
-/** A clickable card with title, blurb and optional tag chips. */
+/** A clickable card — layered surfaces, tinted shadow, refined hover reveal. */
 export function LinkCard({
   href,
   title,
@@ -50,16 +51,20 @@ export function LinkCard({
   return (
     <Link
       href={href}
-      className="group block bg-white rounded-2xl border border-[#ece4d8] p-5 transition hover:border-[var(--c-wine)] hover:shadow-lg hover:-translate-y-0.5"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-5 transition-transform duration-200 hover:-translate-y-1 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]"
     >
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-0.5 bg-[var(--c-gold)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+      />
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-display text-xl font-semibold text-[var(--c-ink)] group-hover:text-[var(--c-wine)]">
+        <h3 className="font-display text-xl font-semibold text-[var(--c-ink)] group-hover:text-[var(--c-wine)] transition-colors duration-200 leading-snug">
           {flag && <span className="mr-2">{flag}</span>}
           {title}
         </h3>
         <span
           aria-hidden
-          className="text-[var(--c-wine)] opacity-0 group-hover:opacity-100 transition text-xl leading-none mt-1"
+          className="shrink-0 text-[var(--c-wine)] opacity-0 group-hover:translate-x-0.5 transition-all duration-200 text-xl leading-none mt-1"
         >
           →
         </span>
@@ -72,7 +77,10 @@ export function LinkCard({
       {chips && chips.length > 0 && (
         <div className="flex flex-wrap gap-1.5 mt-4">
           {chips.slice(0, 4).map((c) => (
-            <span key={c} className="chip">
+            <span
+              key={c}
+              className="chip transition-colors duration-200 group-hover:bg-[var(--c-wine-soft)] group-hover:text-[var(--c-wine-2)]"
+            >
               {c}
             </span>
           ))}

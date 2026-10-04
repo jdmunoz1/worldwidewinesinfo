@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 bg-[var(--c-paper)]/95 backdrop-blur border-b border-[#ece4d8]">
+      <header className="sticky top-0 z-40 bg-[var(--c-paper)]/90 backdrop-blur-md border-b border-[#ece4d8] shadow-[0_1px_0_rgba(74,30,42,0.03)]">
         <div className="max-w-6xl mx-auto px-4">
           {/* Top bar */}
           <div className="flex items-center justify-between h-16">
@@ -99,12 +99,16 @@ export default function Layout({ children }: { children: ReactNode }) {
       </main>
 
       {/* Newsletter band */}
-      <section className="bg-[var(--c-burgundy)] text-[#f6efe6]">
-        <div className="max-w-6xl mx-auto px-4 py-14 text-center">
-          <h2 className="font-display text-2xl md:text-3xl mb-2">
+      <section className="relative overflow-hidden bg-[var(--c-burgundy)] text-[#f6efe6]">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(196,151,74,0.16),transparent_60%)]" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,rgba(196,151,74,0.5),transparent)]" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-20 text-center">
+          <h2 className="font-display text-2xl md:text-[2.1rem] leading-tight mb-3">
             Explore the world of wine, one region and story at a time
           </h2>
-          <p className="text-[#d9cbb0] max-w-xl mx-auto mb-6">
+          <p className="text-[#d9cbb0] max-w-xl mx-auto mb-7">
             Join the newsletter for region-of-the-week guides, grape deep-dives,
             food pairings and wine travel — straight to your inbox.
           </p>
@@ -206,13 +210,19 @@ function FooterCol({
 }) {
   return (
     <div>
-      <h3 className="font-display text-white font-semibold mb-3 uppercase tracking-wide text-xs">
+      <h3 className="font-display text-white font-semibold mb-4 uppercase tracking-[0.16em] text-xs">
         {title}
       </h3>
-      <ul className="space-y-2">
+      <ul className="space-y-2.5">
         {links.map(([label, href]) => (
           <li key={href + label}>
-            <Link href={href} className="hover:text-white transition">
+            <Link
+              href={href}
+              className="group inline-flex items-center gap-1.5 text-[#c9beae] transition-colors duration-200 hover:text-[var(--c-gold)]"
+            >
+              <span aria-hidden className="w-0 overflow-hidden text-[var(--c-gold)] transition-all duration-200 group-hover:w-2.5 group-hover:pr-0 leading-tight">
+                ›
+              </span>
               {label}
             </Link>
           </li>
